@@ -1,6 +1,9 @@
 let inputString = "1 1 h"
     // checkForRepetition(inputString)
-    checkForRepetition2(inputString)
+    checkForRepetition(inputString)
+    // const s = 'word word'
+    // console.log(returnWordIndex('bo',-7,s))
+    // console.log(returnWordIndex('word',-3,s))
     
 // function checkForRepetition(inputString)
 // {
@@ -16,15 +19,15 @@ let inputString = "1 1 h"
 //             if(repetitionFlag==0) console.log("No repeated words!")
 //                 else console.log("Repeated Words Exist!")
 // }
-
+function returnWordIndex(word, position, self) {
+    return self.indexOf(word) === position
+}
 //Another method 
-function checkForRepetition2(inputString)
+function checkForRepetition(inputString)
 {
             inputString = inputString.toLowerCase()
     const   words = inputString.split(" ")        
-    const   uniqueWords = words.filter(function (word, position, self) {
-                return self.indexOf(word) === position
-            })
+    const   uniqueWords = words.filter(returnWordIndex)
     let     repeatedWords = words.length - uniqueWords.length
             if(repeatedWords==0)
             {
